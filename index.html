@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mayon | Digital Creator</title>
+<meta name="description" content="Pasidu Mayon Batukumara – videographer, editor, art director, social media manager and radio presenter.">
+
+<!-- Fonts (you can swap these for any Google Fonts) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+/* =====================================================================
+   1. COLORS & FONTS  –  change the look of the whole site right here
+   ===================================================================== */
+:root {
+  --bg:       #eef1f4;   /* page background */
+  --surface:  #ffffff;   /* cards */
+  --ink:      #10151c;   /* main text + dark sections */
+  --muted:    #566170;   /* secondary text */
+  --accent:   #e5343a;   /* highlight colour (the "on air" red) */
+  --line:     #d5dbe2;   /* thin borders */
+  --font-head: "Bricolage Grotesque", system-ui, sans-serif;
+  --font-body: "DM Sans", system-ui, sans-serif;
+}
+
+/* =====================================================================
+   2. STYLES  –  you normally don't need to touch anything below
+   ===================================================================== */
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{font-family:var(--font-body);background:var(--bg);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.wrap{width:min(1120px,92%);margin-inline:auto}
+h1,h2,h3{font-family:var(--font-head);line-height:1.1;letter-spacing:-.02em}
+
+/* ---- Navigation ---- */
+.nav{position:sticky;top:0;z-index:20;background:rgba(238,241,244,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.logo{font-family:var(--font-head);font-weight:800;font-size:1.25rem;text-decoration:none;display:flex;align-items:center;gap:10px}
+.logo i{width:10px;height:10px;border-radius:50%;background:var(--accent);display:inline-block;animation:blink 2s infinite}
+@keyframes blink{50%{opacity:.25}}
+.nav ul{display:flex;gap:26px;list-style:none}
+.nav ul a{text-decoration:none;font-size:.95rem;font-weight:500;color:var(--muted)}
+.nav ul a:hover{color:var(--ink)}
+.menu-btn{display:none;background:none;border:1px solid var(--line);border-radius:8px;padding:6px 12px;font:inherit;cursor:pointer}
+
+/* ---- Hero ---- */
+.hero{padding:clamp(48px,9vw,110px) 0 clamp(48px,7vw,90px)}
+.hero .wrap{display:grid;grid-template-columns:1.25fr .75fr;gap:clamp(28px,6vw,80px);align-items:center}
+.hero h1{font-size:clamp(2.6rem,7vw,5.4rem);font-weight:800}
+.hero h1 span{color:var(--accent)}
+.hero .role{margin-top:18px;font-weight:700;font-size:1.1rem}
+.hero p.intro{margin-top:14px;color:var(--muted);max-width:56ch;font-size:1.08rem}
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{display:inline-block;padding:13px 24px;border-radius:999px;font-weight:700;text-decoration:none;border:2px solid var(--ink);transition:.2s}
+.btn.primary{background:var(--ink);color:#fff}
+.btn.primary:hover{background:var(--accent);border-color:var(--accent)}
+.btn.ghost:hover{background:var(--ink);color:#fff}
+.portrait{aspect-ratio:1/1.1;border-radius:28px 28px 120px 28px;overflow:hidden;background:var(--ink);box-shadow:14px 14px 0 var(--accent)}
+.portrait img{width:100%;height:100%;object-fit:cover;object-position:center 15%} /* change 15% to move the crop up/down */
+
+/* ---- Skill strip ---- */
+.strip{background:var(--ink);color:#fff;padding:18px 0;overflow:hidden}
+.strip .wrap{display:flex;flex-wrap:wrap;gap:10px 34px;justify-content:center;font-family:var(--font-head);font-weight:700;font-size:1.05rem}
+
+/* ---- Sections ---- */
+section.block{padding:clamp(56px,8vw,100px) 0}
+.sec-head{margin-bottom:40px;max-width:60ch}
+.sec-head h2{font-size:clamp(2rem,4.5vw,3.2rem);font-weight:800}
+.sec-head p{margin-top:10px;color:var(--muted)}
+.about p{font-size:1.15rem;max-width:68ch;color:#2b3440}
+
+/* ---- Work cards ---- */
+.work{background:var(--surface);border:1px solid var(--line);border-radius:22px;margin-bottom:34px;overflow:hidden}
+.work-top{padding:clamp(22px,4vw,40px);border-bottom:1px solid var(--line)}
+.work-top h3{font-size:clamp(1.5rem,3vw,2.1rem);font-weight:800}
+.work-top p.sub{color:var(--muted);margin-top:6px}
+.job{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(18px,4vw,44px);padding:clamp(22px,4vw,40px);border-bottom:1px solid var(--line)}
+.job:last-child{border-bottom:0}
+.job .thumb{border-radius:14px;overflow:hidden;background:var(--bg);align-self:start;aspect-ratio:16/10}
+.job .thumb img{width:100%;height:100%;object-fit:cover}
+.job h4{font-family:var(--font-head);font-size:1.4rem;font-weight:700}
+.job .when{display:inline-block;margin:6px 0 12px;font-size:.88rem;font-weight:700;color:var(--accent)}
+.job p{color:#2b3440;margin-bottom:12px}
+.links{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.links a{font-size:.9rem;font-weight:600;padding:6px 14px;border:1px solid var(--ink);border-radius:999px;text-decoration:none}
+.links a:hover{background:var(--ink);color:#fff}
+
+/* ---- Photo galleries ---- */
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px;padding:0 clamp(22px,4vw,40px) clamp(22px,4vw,40px)}
+.gallery button{border:0;padding:0;background:none;cursor:zoom-in;border-radius:12px;overflow:hidden;aspect-ratio:1/1}
+.gallery img{width:100%;height:100%;object-fit:cover;transition:transform .3s}
+.gallery button:hover img{transform:scale(1.06)}
+
+/* ---- Lightbox ---- */
+.lightbox{position:fixed;inset:0;background:rgba(10,13,18,.92);display:none;align-items:center;justify-content:center;z-index:50;padding:20px;cursor:zoom-out}
+.lightbox.open{display:flex}
+.lightbox img{max-height:92vh;border-radius:10px}
+
+/* ---- Contact (dark) ---- */
+.contact{background:var(--ink);color:#fff}
+.contact .sec-head p{color:#aab3bf}
+.contact-grid{display:flex;flex-wrap:wrap;gap:14px}
+.contact-grid a{display:flex;align-items:center;gap:10px;padding:14px 22px;border:1px solid #38424f;border-radius:14px;text-decoration:none;font-weight:600;transition:.2s}
+.contact-grid a:hover{background:var(--accent);border-color:var(--accent)}
+.phone{font-family:var(--font-head);font-size:clamp(1.8rem,5vw,3rem);font-weight:800;margin-top:34px;display:block;text-decoration:none}
+footer{background:var(--ink);color:#7f8a98;text-align:center;padding:22px 0 30px;font-size:.9rem;border-top:1px solid #232b36}
+
+/* ---- Mobile ---- */
+@media(max-width:820px){
+  .hero .wrap,.job{grid-template-columns:1fr}
+  .portrait{max-width:340px;order:-1}
+  .menu-btn{display:block}
+  .nav ul{display:none;position:absolute;top:64px;left:0;right:0;background:var(--bg);flex-direction:column;padding:18px 4%;gap:14px;border-bottom:1px solid var(--line)}
+  .nav ul.open{display:flex}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<!-- ===================== NAVIGATION =====================
+     Links point to the section ids further down (#about, #work, #contact).
+     Change the visible text freely; keep the "#..." part matching the section id. -->
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#top"><i></i><span id="logoText"></span></a>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu">Menu</button>
+    <ul id="menuList">
+      <li><a href="#about">About</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <h1 id="heroName"></h1>
+        <p class="role" id="heroRole"></p>
+        <p class="intro" id="heroIntro"></p>
+        <div class="btns">
+          <a class="btn primary" href="#work">See my work</a>
+          <a class="btn ghost" href="#contact">Get in touch</a>
+        </div>
+      </div>
+      <div class="portrait"><img id="heroPhoto" alt="Portrait of Mayon"></div>
+    </div>
+  </section>
+
+  <!-- Skill strip (edit the list in the CONFIG below) -->
+  <div class="strip"><div class="wrap" id="skills"></div></div>
+
+  <!-- ===================== ABOUT ===================== -->
+  <section class="block about" id="about">
+    <div class="wrap">
+      <div class="sec-head"><h2>About me</h2></div>
+      <p id="aboutText"></p>
+    </div>
+  </section>
+
+  <!-- ===================== WORK =====================
+       This area is filled automatically from the CONFIG below.
+       Add / remove work categories and jobs there – no HTML editing needed. -->
+  <section class="block" id="work" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head"><h2>My work</h2><p>Video, social media, art direction and radio.</p></div>
+      <div id="workList"></div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACT ===================== -->
+  <section class="block contact" id="contact">
+    <div class="wrap">
+      <div class="sec-head"><h2>Let's work together</h2><p>Message me on any of these.</p></div>
+      <div class="contact-grid" id="socials"></div>
+      <a class="phone" id="phoneLink"></a>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap" id="footerText"></div></footer>
+
+<!-- Lightbox for enlarged photos -->
+<div class="lightbox" id="lightbox"><img id="lightboxImg" alt=""></div>
+
+<script>
+/* =====================================================================
+   3. CONFIG  –  EDIT YOUR INFORMATION HERE
+   Everything on the website comes from this one block.
+   Tip: keep the quotes "..." and commas , exactly as they are.
+   ===================================================================== */
+const SITE = {
+
+  /* ---------- BASIC INFO ---------- */
+  logo: "MAYON",                               // top-left logo text
+  nameFirst: "Pasidu Mayon",                   // big heading, first part
+  nameLast:  "Batukumara",                     // big heading, second part (shown in red)
+  role: "Digital Creator",                     // line under your name
+  intro: "Final-year IT undergraduate specializing in Robotics, with hands-on experience in video editing, videography, social media handling and website development. I blend technology with creativity to tell stories and build impactful digital content.",
+  photo: "photo.jpg",  // your portrait – keep photo.jpg in the SAME folder as this file, or paste any image link
+
+  /* ---------- ABOUT PAGE TEXT ---------- */
+  about: "I'm a creative with one foot in technology and one in storytelling. I study IT with a focus on Robotics, and outside the lecture hall I shoot, edit, design and present. I have worked as a videographer, editor, art director, social media manager and radio presenter, and I enjoy every stage of turning an idea into finished content.",
+
+  /* ---------- SKILL STRIP (short words shown in the dark bar) ---------- */
+  skills: ["Videography", "Video editing", "Social media", "Art direction", "Radio presenting", "Web development"],
+
+  /* ---------- CONTACT ---------- */
+  phone: "+94 778 146 082",                    // shown big at the bottom
+  socials: [                                   // add or remove lines as you like
+    { name: "WhatsApp",  url: "https://wa.me/qr/CU6T25PA6OKQM1" },
+    { name: "Facebook",  url: "https://www.facebook.com/share/1631eRQKxQ/" },
+    { name: "Instagram", url: "https://www.instagram.com/pasidu_mayon?igsh=MXc1NmlvbnkwODJuOA%3D%3D" },
+    { name: "LinkedIn",  url: "https://www.linkedin.com/in/mayon-batukumara-87bb8828a" }
+  ],
+  footer: "© 2025 Mayon. All rights reserved.",
+
+  /* ---------- WORK ----------
+     Each category has: title, subtitle, jobs[], and photos[] (optional gallery).
+     Each job has: title, role (with dates), text, image, links[].
+     To add a job: copy one { ... } block and paste it after a comma.          */
+  work: [
+
+    /* ===== CATEGORY 1: VIDEO ===== */
+    {
+      title: "Videography & video editing",
+      subtitle: "From lighting and camera setup to the final edit.",
+      jobs: [
+        {
+          title: "Power Hour Podcast",
+          role: "Production Lead · Oct 2024 – Jan 2025",
+          text: "Production lead for Power Hour Podcast, a political and social commentary channel by renowned Sri Lankan presenter Gemunu Jayantha Wanninayake. I launched the channel's entire video production: lighting, camera setup, background design, videography and editing. I also created short clips and promotional banners for Facebook, TikTok and YouTube.",
+          image: "https://static.wixstatic.com/media/50c605_4813525dec9d43f1bdbadfa223e083c5~mv2.png",
+          links: [{ label: "YouTube channel", url: "https://www.youtube.com/@gemunuwanninayake" }]
+        },
+        {
+          title: "Senkadagala 360 & Indra Production",
+          role: "Freelance Videographer & Creative Assistant · 2024 – Present",
+          text: "Freelancing with Senkadagala 360, a creative agency for short commercials and event coverage, handling videography, photography and story ideas for ad concepts. I also work with Indra Production, a growing media studio, assisting with lighting, videography and stage preparation across all stages of production, alongside my university studies.",
+          image: "https://static.wixstatic.com/media/50c605_0758298aa0e44e779d3bb211a4bcbcf3~mv2.png",
+          links: [
+            { label: "Facebook page", url: "https://www.facebook.com/share/1HS6A2Zjtt/" },
+            { label: "VXL commercial", url: "https://web.facebook.com/share/v/1CB5ae6k8r/" }
+          ]
+        },
+        {
+          title: "Mathaka Pada (මතක පද)",
+          role: "Videographer & Video Editor · Oct 2024 – Jan 2025",
+          text: "Videographer and editor for Mathaka Pada, a YouTube channel built on emotional and musical storytelling with Sri Lankan celebrities. I handled full production from capturing footage to final edits, plus short clips for Facebook. A temporary role because of my studies, but valuable experience with emotion-driven content.",
+          image: "https://static.wixstatic.com/media/50c605_ff30c42703d949809c3f2e462cc89828~mv2.jpg",
+          links: [{ label: "YouTube channel", url: "https://www.youtube.com/@MathakaPada" }]
+        },
+        {
+          title: "Assistant to DOP Charls Niroshan (Charly)",
+          role: "Assistant · 2022 – 2024",
+          text: "I began my videography and editing journey under Charls Niroshan (Charly), one of Sri Lanka's most respected Directors of Photography. I worked closely with him on his projects, especially editing, where I helped structure edit lineups and learned camera work, lighting and storytelling in depth.",
+          image: "https://static.wixstatic.com/media/50c605_ddf33ee5f89f43ae806d61c2efc84ace~mv2.jpeg",
+          links: [{ label: "Profile", url: "https://www.facebook.com/share/1GF2F865an/" }]
+        }
+      ],
+      /* Optional photo gallery (behind-the-scenes). Paste image links, one per line. */
+      photos: [
+        "https://static.wixstatic.com/media/50c605_2089358defdf412fb16c96149423b0e8f000.jpg",
+        "https://static.wixstatic.com/media/50c605_6570d0f5354540d183e46f9794ef7640f000.jpg",
+        "https://static.wixstatic.com/media/50c605_fadb971aebb748fba9ab61bc40085220f000.jpg",
+        "https://static.wixstatic.com/media/50c605_f52641f0817e432e9e33aee7d39a003af000.jpg",
+        "https://static.wixstatic.com/media/50c605_a5117123a1314d12ae8aa700d37aef5af000.jpg",
+        "https://static.wixstatic.com/media/50c605_3a31d368417c440ebb8d2525a2f3a901f000.jpg",
+        "https://static.wixstatic.com/media/50c605_b66a913c7347427cb2a82004080adf8df000.jpg",
+        "https://static.wixstatic.com/media/50c605_68ca2a3815c94731bab806efff347110f000.jpg",
+        "https://static.wixstatic.com/media/50c605_74aac19965dc457fae7423a906d81eb4f000.jpg",
+        "https://static.wixstatic.com/media/50c605_c50fa15442a544e48e33833c1dfb2973f000.jpg",
+        "https://static.wixstatic.com/media/50c605_dd23c3714e004e43b53355f1e1b34f63f000.jpg",
+        "https://static.wixstatic.com/media/50c605_cb41e589a0394931a89a350b734123a0~mv2.jpeg"
+      ]
+    },
+
+    /* ===== CATEGORY 2: SOCIAL MEDIA ===== */
+    {
+      title: "Social media handling",
+      subtitle: "Content, design and community management.",
+      jobs: [
+        {
+          title: "Power Hour Podcast",
+          role: "Social Media Content Manager · Oct 2024 – Jan 2025",
+          text: "Managed all social media content for Gemunu Jayantha Wanninayake's podcast on political and social topics. I created short clips, designed banners and thumbnails, and handled posts on Facebook, TikTok and YouTube, improving content consistency and viewer engagement.",
+          image: "https://static.wixstatic.com/media/50c605_4813525dec9d43f1bdbadfa223e083c5~mv2.png",
+          links: []
+        },
+        {
+          title: "Travels to Nilwala",
+          role: "Social Media Manager · Jan 2025 – Present",
+          text: "Running the complete social media presence for Travels to Nilwala, a tourism service offering boat safaris on the Nilwala River in Matara. I manage Facebook, Instagram and WhatsApp Business, create promotional reels, design posts and engage with followers, showcasing wildlife experiences to attract tourists.",
+          image: "https://static.wixstatic.com/media/50c605_fafa117ed31744fa92c66eca16530c4c~mv2.jpeg",
+          links: []
+        }
+      ],
+      photos: [
+        "https://static.wixstatic.com/media/50c605_5ce68840c71647b4ad7ba580cc4c1368~mv2.jpeg",
+        "https://static.wixstatic.com/media/50c605_147489b8cb074edfa75ce3ec73f0a660~mv2.jpeg",
+        "https://static.wixstatic.com/media/50c605_3cb643b45bd14c6ca2a19b09637ee341~mv2.jpeg",
+        "https://static.wixstatic.com/media/50c605_4a3bfa66a3f54f24a9872583cfb66cde~mv2.jpeg",
+        "https://static.wixstatic.com/media/50c605_c851a619df7b4e0a97d8babb2edf6ddb~mv2.jpeg",
+        "https://static.wixstatic.com/media/50c605_aa2d609b2ea046568381530c98433af0~mv2.jpeg",
+        "https://static.wixstatic.com/media/50c605_5036cc74bb354afb8470c2e5633a9edf~mv2.jpeg",
+        "https://static.wixstatic.com/media/50c605_8ecb804039164218a9d441046d24ba38~mv2.jpeg",
+        "https://static.wixstatic.com/media/50c605_27eb7d287ec44225b8cce95f631d48a6~mv2.jpeg",
+        "https://static.wixstatic.com/media/50c605_01bac356f7a148f6bdd0c8e1bb5a2f3a~mv2.jpeg",
+        "https://static.wixstatic.com/media/50c605_8be5721bf0fb42ada7c435120ebab3de~mv2.jpeg",
+        "https://static.wixstatic.com/media/50c605_8274e6b1999f4acfa80365441593bf6b~mv2.jpeg"
+      ]
+    },
+
+    /* ===== CATEGORY 3: ART DIRECTION ===== */
+    {
+      title: "Art direction",
+      subtitle: "Concept, sets, props and colour for commercials.",
+      jobs: [
+        {
+          title: "See First Media",
+          role: "Freelance Art Director · 2024",
+          text: "Led art direction on several commercial productions for well-known brands, including Siddhalepa and Quickee (a sub-brand of EFL). My work covered concept design, background and prop creation, colour selection and artist coordination so the visuals matched each brand's identity and story.",
+          image: "https://static.wixstatic.com/media/50c605_b7c4b3f443c14c5f856c3c3c7feedcfc~mv2.jpg",
+          links: [
+            { label: "Siddhalepa 1", url: "https://youtu.be/awQzZtobvsg?si=DMfc2zmk3frgsToC" },
+            { label: "Siddhalepa 2", url: "https://web.facebook.com/share/v/161T5qnn7r/" },
+            { label: "Siddhalepa 3", url: "https://web.facebook.com/share/v/18bNHoGVVi/" },
+            { label: "Quickee 1", url: "https://web.facebook.com/reel/953130143502426" },
+            { label: "Quickee 2", url: "https://web.facebook.com/reel/1526446011410993" },
+            { label: "Quickee 3", url: "https://web.facebook.com/reel/350499448156487" }
+          ]
+        }
+      ],
+      photos: [
+        "https://static.wixstatic.com/media/50c605_0b3e4d3837744ff8bb83780f0aacd5a1f000.jpg",
+        "https://static.wixstatic.com/media/50c605_4a64871f7ed24a3280469ff33460b26af000.jpg",
+        "https://static.wixstatic.com/media/50c605_9873a4f40aea4f00bc1dcca346f4ad45f000.jpg",
+        "https://static.wixstatic.com/media/50c605_930614099c7041518551bac8853721f2f000.jpg",
+        "https://static.wixstatic.com/media/50c605_1045eaaf8cd444efa013a81cdbc5e686f000.jpg",
+        "https://static.wixstatic.com/media/50c605_f047e4b0f831430898f2767b79c37b66~mv2.jpeg",
+        "https://static.wixstatic.com/media/50c605_059ab5a01b6c4f61827479933fa9686a~mv2.jpeg",
+        "https://static.wixstatic.com/media/50c605_4b4dd0de7edc41729812674ea8b3d2a0~mv2.jpeg",
+        "https://static.wixstatic.com/media/50c605_ac619caff2fa4a2da5d0d45930e4fde4~mv2.jpeg",
+        "https://static.wixstatic.com/media/50c605_b50c282c510844d5b2c6942f663e7a1e~mv2.jpeg"
+      ]
+    },
+
+    /* ===== CATEGORY 4: RADIO ===== */
+    {
+      title: "Radio presenting",
+      subtitle: "Hosting and RJ experience.",
+      jobs: [
+        {
+          title: "Lord Radio – Tharuna Diviya",
+          role: "Radio Presenter · 2022 – 2024",
+          text: "Presenter on Lord Radio, a Christian online radio channel based in Canada that broadcasts through Facebook, streaming platforms and its own mobile app. I hosted \"Tharuna Diviya\" (තරුණ දිවිය), a programme inspiring young listeners with Bible-based discussions, and gained experience as a Radio Jockey running an online show with confidence and clarity.",
+          image: "https://static.wixstatic.com/media/50c605_55c600bb430c41d18f57dac194801df2~mv2.png",
+          links: [
+            { label: "Episode 1", url: "https://web.facebook.com/share/v/1CJ4EX9rpe/" },
+            { label: "Episode 2", url: "https://web.facebook.com/share/v/1A1WWtNHiC/" }
+          ]
+        }
+      ],
+      photos: [
+        "https://static.wixstatic.com/media/50c605_d6c4932f6be243a9b7bd2e4272acbd57f000.jpg",
+        "https://static.wixstatic.com/media/50c605_e3403b12312d4ba5b4566867951bc916~mv2.jpeg",
+        "https://static.wixstatic.com/media/50c605_69f618a4d6484986a2ccb75b39358a01~mv2.jpeg"
+      ]
+    }
+  ]
+};
+
+/* =====================================================================
+   4. SCRIPT  –  builds the page from the CONFIG above. No need to edit.
+   ===================================================================== */
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+// Basic text
+$("logoText").textContent = SITE.logo;
+$("heroName").innerHTML = esc(SITE.nameFirst) + " <span>" + esc(SITE.nameLast) + "</span>";
+$("heroRole").textContent = SITE.role;
+$("heroIntro").textContent = SITE.intro;
+$("heroPhoto").src = SITE.photo;
+$("aboutText").textContent = SITE.about;
+$("footerText").textContent = SITE.footer;
+$("skills").innerHTML = SITE.skills.map(s => "<span>" + esc(s) + "</span>").join("");
+
+// Contact
+$("socials").innerHTML = SITE.socials.map(s => '<a href="' + esc(s.url) + '" target="_blank" rel="noopener">' + esc(s.name) + '</a>').join("");
+$("phoneLink").textContent = SITE.phone;
+$("phoneLink").href = "tel:" + SITE.phone.replace(/\s/g, "");
+
+// Work categories
+$("workList").innerHTML = SITE.work.map(cat => {
+  const jobs = cat.jobs.map(j => `
+    <div class="job">
+      <div class="thumb"><img src="${esc(j.image)}" alt="${esc(j.title)}" loading="lazy"></div>
+      <div>
+        <h4>${esc(j.title)}</h4>
+        <span class="when">${esc(j.role)}</span>
+        <p>${esc(j.text)}</p>
+        <div class="links">${(j.links || []).map(l => `<a href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)}</a>`).join("")}</div>
+      </div>
+    </div>`).join("");
+  const photos = (cat.photos && cat.photos.length)
+    ? `<div class="gallery">${cat.photos.map(p => `<button type="button" data-full="${esc(p)}" aria-label="Enlarge photo"><img src="${esc(p)}" alt="" loading="lazy"></button>`).join("")}</div>` : "";
+  return `
+    <article class="work">
+      <div class="work-top"><h3>${esc(cat.title)}</h3><p class="sub">${esc(cat.subtitle)}</p></div>
+      ${jobs}${photos}
+    </article>`;
+}).join("");
+
+// Lightbox
+const lb = $("lightbox");
+document.addEventListener("click", e => {
+  const btn = e.target.closest(".gallery button");
+  if (btn) { $("lightboxImg").src = btn.dataset.full; lb.classList.add("open"); }
+  else if (e.target.closest("#lightbox")) lb.classList.remove("open");
+});
+document.addEventListener("keydown", e => { if (e.key === "Escape") lb.classList.remove("open"); });
+
+// Mobile menu
+$("menuBtn").addEventListener("click", () => $("menuList").classList.toggle("open"));
+$("menuList").addEventListener("click", () => $("menuList").classList.remove("open"));
+</script>
+</body>
+</html>
